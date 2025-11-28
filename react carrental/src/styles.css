@@ -1,0 +1,99 @@
+:root{
+  --bg:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --primary:#f59e0b; /* gul knap */
+  --accent:#111827; /* mørk topnav */
+  --card:#f9fafb;
+  --border:#e5e7eb;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:system-ui,Segoe UI, Roboto, Arial; color:var(--text); background:var(--bg)}
+
+.app{display:flex; flex-direction:column; min-height:100%}
+
+/* Nav */
+.nav{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 20px; background:var(--accent); color:#fff;
+}
+.nav .logo{font-weight:700}
+.nav .nav-links a{
+  color:#fff; text-decoration:none; margin:0 10px; padding:6px 8px; border-radius:6px;
+}
+.nav .nav-links a.active{background:#374151}
+
+/* Hero */
+.hero{position:relative; height:280px; overflow:hidden}
+.hero-img{width:100%; height:100%; object-fit:cover; filter:brightness(0.75)}
+.hero-overlay{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 20px;
+}
+.hero-title{color:#fff; font-size:36px; margin:0 0 12px}
+
+/* Search bar over hero */
+.search-bar{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;
+  width:100%; max-width:900px; background:#ffffffdd; backdrop-filter:saturate(120%) blur(2px);
+  padding:12px; border-radius:10px;
+}
+.form-group{display:flex; flex-direction:column; gap:6px}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+label{font-size:14px; color:var(--muted)}
+input, select{
+  height:38px; border:1px solid var(--border); border-radius:8px; padding:0 10px; font-size:14px; background:#fff;
+}
+.btn{
+  height:38px; border:none; border-radius:8px; background:#374151; color:#fff; cursor:pointer; padding:0 14px;
+}
+.btn.primary{background:var(--primary); color:#111}
+.btn.small{height:32px; font-size:14px}
+
+/* Containers */
+.container{max-width:1100px; margin:24px auto; padding:0 20px}
+.grid-2{display:grid; grid-template-columns:320px 1fr; gap:20px}
+
+/* Cards */
+.cars-section h2{margin:0 0 12px}
+.cars-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+.car-card{
+  background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; display:flex; flex-direction:column;
+}
+.car-card img{width:100%; height:150px; object-fit:cover}
+.car-info{padding:12px}
+.car-info h4{margin:0 0 6px}
+.muted{color:var(--muted); margin:0 0 8px}
+.price{font-weight:700; margin-bottom:10px}
+.card-actions{display:flex; justify-content:flex-start}
+
+/* Filters panel */
+.filters{
+  background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px;
+}
+.filters h3{margin:0 0 10px}
+
+/* Booking */
+.booking-section h2{margin-top:0}
+.booking-form{
+  background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px;
+}
+.contact .link{color:#2563eb; text-decoration:none}
+
+/* Footer */
+.footer{
+  margin-top:auto; padding:14px 20px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;
+}
+.footer .link{color:#2563eb; text-decoration:none}
+
+/* Responsive */
+@media (max-width:900px){
+  .search-bar{grid-template-columns:1fr 1fr; }
+  .grid-2{grid-template-columns:1fr}
+  .cars-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media (max-width:600px){
+  .search-bar{grid-template-columns:1fr}
+  .cars-grid{grid-template-columns:1fr}
+}
